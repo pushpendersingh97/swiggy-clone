@@ -20,7 +20,7 @@ export const RestaurantCard = (props) => {
         </p>
         <p>
           {cuisines.map((cus) => {
-            return <span>{cus}, </span>;
+            return <span key={cus}>{cus}, </span>;
           })}
         </p>
         <p>{areaName}</p>

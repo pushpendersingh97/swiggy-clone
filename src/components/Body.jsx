@@ -1,6 +1,6 @@
 import React from "react";
-import { RestaurantCard } from "../common/RestaurantCard"
-import { RES_DATA } from "../common/data";
+import { RestaurantCard } from "./RestaurantCard"
+import { RES_DATA } from "./data";
 
 export const Body = () => {
   return (
