@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RestaurantCard } from "./RestaurantCard";
 import { SWIGGY_URL } from "../utils/constant";
+import { Shimmer } from "../common/shimmer";
 
 export const Body = () => {
   let [listOfRestaurant, setListOfRestraunt] = useState([]);
@@ -26,7 +27,9 @@ export const Body = () => {
   }, []);
 
   if (listOfRestaurant && listOfRestaurant.length === 0) {
-    return <div className="container">No Records Found</div>;
+    return <div className="container">
+      <Shimmer />
+    </div>;
   }
 
   return (

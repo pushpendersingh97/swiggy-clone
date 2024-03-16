@@ -1,130 +1,21 @@
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-weight: 300;
-    color: #282c3f;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-header {
-    box-shadow: 0 15px 40px -20px rgba(40,44,63,.15);
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    background: #fff;
-    z-index: 1000;
-    will-change: transform;
-    transform: translateZ(0);
-    transition: transform .3s ease;
-    contain: size layout style;
-    padding: 0 20px;
-}
-
-.navbar {
-    max-width: 1200px;
-    min-width: 1200px;
-    position: relative;
-    margin: 0 auto;
-    height: 80px;
-    background: #fff;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
-.logo-wrapper {
-    display: block;
-    height: 49px;
-    transition: transform .3s cubic-bezier(.215,.61,.355,1);
-    margin-right: 16px;
-}
-
-ul {
-    list-style-type: none;
-}
-
-.navbar-nav {
-    -ms-flex: 1;
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-    height: 100%;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
-.nav-item {
-    margin-right: 60px;
-    color: #3d4152;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.nav-item:first-child {
-    margin-right: 0;
-}
-
-.nav-item:hover {
-    color: #fc8019;
-}
-
-.nav-item-anchor {
-    display: flex;
-    align-items: center;
-    padding-left: 28px;
-}
-
-.card-wrapper {
-    height: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    cursor: pointer;
-    margin: 1rem;
-}
-
-.card-wrapper:hover {
-    transform: scale(0.95, 0.95);
-    transform-origin: center center;
-    transition: all 0.1s ease-in 0s;
-}
-
-.card-wrapper .img-wrapper {
-    position: relative;
-    width: 273px;
-    height: 182px;
-    border-radius: 16px;
-    overflow: hidden;
-    filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 2px 8px);
-}
-
-.card-wrapper .img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.card-wrapper .card-text {
-    width: 273px;
-    margin-top: 8px;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-weight: 300;
+  color: #282c3f;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    min-width: 1200px;
-    max-width: 1220px;
-    margin: 0 auto;
-    margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 3rem;
+  margin-top: 2rem;
 }
