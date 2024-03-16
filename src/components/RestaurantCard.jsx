@@ -4,6 +4,7 @@ import { IMG_URL } from "../utils/constant";
 export const RestaurantCard = (props) => {
   const { resData } = props;
   const { name, cloudinaryImageId, areaName, cuisines, avgRating } = resData;
+  
   return (
     <div className="card-wrapper">
       <div className="img-wrapper">
