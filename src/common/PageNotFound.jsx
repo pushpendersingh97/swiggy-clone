@@ -1,6 +1,8 @@
 import React from "react";
-import "./PageNotFound.css";
 import { useRouteError } from "react-router-dom";
+
+import "./PageNotFound.css";
+import { Link } from "react-router-dom";
 
 export const PageNotFound = () => {
   const err = useRouteError();
@@ -16,10 +18,9 @@ export const PageNotFound = () => {
           <h3 className="h2">Look like you're lost</h3>
 
           <p>{err.data}</p>
-
-          <a href="/" className="link_404">
+          <Link to="/" className="link_404">
             Go to Home
-          </a>
+          </Link>
         </div>
       </div>
     </section>
