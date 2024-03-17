@@ -1,47 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import { RestaurantCard } from "./RestaurantCard";
-import { SWIGGY_GET_URL } from "../utils/constant";
 import { Shimmer } from "../common/shimmer";
+import { useRestaurantList } from "../utils/custom-hooks/useRestaurantList";
 
 export const Body = () => {
-  let [listOfRestaurant, setListOfRestraunt] = useState([]);
-  // let [isFetching, setIsFetching] = useState(true);
+  const listOfRestaurant = useRestaurantList();
 
-  const getRestaurants = async () => {
-    const response = await fetch(SWIGGY_GET_URL);
-    const restaurant = await response.json();
-    setListOfRestraunt(
-      restaurant?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-  };
-
-  // const handleScroll = () => {
-  //   if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || isFetching) {
-  //     return;
-  //   }
-
-  //   setIsFetching(true);
-  //   getMoreRestaurants();
-  // };
-
-  // function getMoreRestaurants() {
-  //   console.log("Scrolling work");
-  //   setIsFetching(false);
-  // }
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, [isFetching]);
-
-  useEffect(() => {
-    getRestaurants();
-  }, []);
-
-  if (listOfRestaurant && listOfRestaurant.length === 0) {
+  if (listOfRestaurant === null) {
     return (
       <div className="container mx-auto">
         <Shimmer />
