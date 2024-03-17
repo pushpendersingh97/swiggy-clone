@@ -18,11 +18,7 @@ export const RestaurantCard = (props) => {
         <p>
           <b>{avgRating}</b>
         </p>
-        <p>
-          {cuisines.map((cus) => {
-            return <span key={cus}>{cus}, </span>;
-          })}
-        </p>
+        <p>{cuisines.join(", ")}</p>
         <p>{areaName}</p>
       </div>
     </div>
