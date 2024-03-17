@@ -14,12 +14,20 @@ export const RestaurantCard = (props) => {
           className="h-full w-full object-cover object-center group-hover:opacity-75"
         />
       </div>
-      <h3 className="mt-4 text-sm text-gray-700">{name}</h3>
-      <p className="mt-1 text-lg font-medium text-gray-900">{avgRating}</p>
-      <p className="mt-1 text-lg font-medium text-gray-900">
-        {cuisines.join(", ")}
-      </p>
-      <p className="mt-1 text-lg font-medium text-gray-900">{areaName}</p>
+      <h3 className="mt-3 text-lg font-medium text-gray-900 flex justify-between">
+        <span className="mr-4">{name}</span>
+        {avgRating < 4 ? (
+          <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+            {avgRating}
+          </span>
+        ) : (
+          <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+            {avgRating}
+          </span>
+        )}
+      </h3>
+      <p className="mt-0_5 text-sm text-gray-700">{cuisines.join(", ")}</p>
+      <p className="mt-0_5 text-sm text-gray-700">{areaName}</p>
     </>
   );
 };
