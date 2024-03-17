@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import { Body } from "./components/Body";
 import { About } from "./components/About";
 import { PageNotFound } from "./common/PageNotFound";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 export const App = () => {
   return (
@@ -29,6 +30,10 @@ const appRouter = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
+      {
+        path: "/restaurant/:resId",
+        element: <RestaurantMenu />
+      }
     ],
     errorElement: <PageNotFound />,
   },
