@@ -7,7 +7,6 @@ export const useRestaurantMenu = (resId) => {
   const getRestaurantMenu = async () => {
     const response = await fetch(SWIGGY_MENU_URL + resId);
     const restaurant = await response.json();
-    console.log(restaurant.data);
 
     setRestaurantMenu(restaurant.data);
   };

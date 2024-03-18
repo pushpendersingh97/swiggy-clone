@@ -2,8 +2,7 @@ import React from "react";
 import { IMG_URL } from "../utils/constant";
 
 export const RestaurantCard = (props) => {
-  const { resData } = props;
-  const { name, cloudinaryImageId, areaName, cuisines, avgRating } = resData;
+  const { name, cloudinaryImageId, areaName, cuisines, avgRating } = props.resData;
 
   return (
     <>
