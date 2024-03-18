@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useRestaurantMenu } from "../utils/custom-hooks/useRestaurantMenu";
 import { IMG_URL } from "../utils/constant";
 import { Accordion } from "../common/Accordion";
+import { Shimmer } from "../common/shimmer";
 
 export default function RestaurantMenu() {
   let { resId } = useParams();
@@ -13,7 +14,7 @@ export default function RestaurantMenu() {
       <div className="container mx-auto">
         <div className="bg-white">
           <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-            <span>Wait</span>
+            <Shimmer />
           </div>
         </div>
       </div>
