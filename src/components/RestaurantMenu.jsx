@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useParams } from "react-router-dom";
 import { useRestaurantMenu } from "../utils/custom-hooks/useRestaurantMenu";
-import { Accordion } from "../common/Accordion";
 import { Shimmer } from "../common/shimmer";
 import { SWIGGY_ITEM_CATEGORY } from "../utils/constant";
+import { ItemCategory } from "./ItemCategory";
 
 export default function RestaurantMenu() {
   let { resId } = useParams();
@@ -79,10 +79,7 @@ export default function RestaurantMenu() {
 
           {restaurantMenuCard.map((res) => {
             return (
-              <Accordion
-                key={res.card.card.title}
-                restaurantMenuCardDetails={res.card.card}
-              />
+              <ItemCategory key={res.card.card.title} items={res.card.card}/>
             );
           })}
         </div>
