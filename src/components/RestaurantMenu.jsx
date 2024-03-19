@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useRestaurantMenu } from "../utils/custom-hooks/useRestaurantMenu";
 import { Accordion } from "../common/Accordion";
 import { Shimmer } from "../common/shimmer";
+import { SWIGGY_ITEM_CATEGORY } from "../utils/constant";
 
 export default function RestaurantMenu() {
   let { resId } = useParams();
@@ -26,8 +27,7 @@ export default function RestaurantMenu() {
 
   restaurantMenuCard = restaurantMenuCard.filter(
     (res) =>
-      res.card.card["@type"] ===
-      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+      res.card.card["@type"] === SWIGGY_ITEM_CATEGORY
   );
   console.log(restaurantMenuCard);
 
