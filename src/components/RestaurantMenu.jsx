@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useParams } from "react-router-dom";
 import { useRestaurantMenu } from "../utils/custom-hooks/useRestaurantMenu";
-import { IMG_URL } from "../utils/constant";
 import { Accordion } from "../common/Accordion";
 import { Shimmer } from "../common/shimmer";
 
@@ -22,8 +21,14 @@ export default function RestaurantMenu() {
   }
 
   const restaurantDetails = restaurantMenu?.cards[0];
-  const restaurantMenuCard =
+  let restaurantMenuCard =
     restaurantMenu?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards;
+
+  restaurantMenuCard = restaurantMenuCard.filter(
+    (res) =>
+      res.card.card["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
   console.log(restaurantMenuCard);
 
   const { name, nearestOutletNudge, cuisines, avgRating } =
@@ -72,9 +77,14 @@ export default function RestaurantMenu() {
 
           <div className="border-dashed border-2"></div>
 
-          <Accordion
-            restaurantMenuCardDetails={restaurantMenuCard[2]?.card.card}
-          />
+          {restaurantMenuCard.map((res) => {
+            return (
+              <Accordion
+                key={res.card.card.title}
+                restaurantMenuCardDetails={res.card.card}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
