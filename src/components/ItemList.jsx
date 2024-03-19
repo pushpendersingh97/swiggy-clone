@@ -5,7 +5,7 @@ export const ItemList = (props) => {
   const { name, imageId, description, defaultPrice, price } =
     props.item.card.info;
   return (
-    <div className="flex p-6 justify-between items-center border-b-2 first:pt-0 last:border-b-0">
+    <div className="flex p-6 justify-between items-center border-b-2 first:pt-0 last:border-b-0 transition-transform">
       <div className="pr-4">
         <p className="font-semibold">
           {name} - Rs {defaultPrice ? defaultPrice / 100 : price / 100}
