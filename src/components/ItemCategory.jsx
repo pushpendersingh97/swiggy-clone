@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { ItemList } from "./ItemList";
 
 function Icon({ open }) {
@@ -20,24 +19,24 @@ function Icon({ open }) {
   );
 }
 
-export const ItemCategory = (props) => {
-  const { title, itemCards } = props.items;
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => setOpen(!open);
+export const ItemCategory = ({ items, setShowIndex, open }) => {
+  const handleClick = () => {
+    setShowIndex();
+  };
 
   return (
     <div className="flex flex-col border-dashed border-b-2">
       <div
         className="flex justify-between w-100 p-4 cursor-pointer"
-        onClick={() => handleOpen()}
+        onClick={handleClick}
       >
-        <span className="text-lg font-semibold">{title}</span>
+        <span className="text-lg font-semibold">{items.title}</span>
         <span>
           <Icon id={1} open={open} />
         </span>
       </div>
-        {open && itemCards.map((item) => {
+      {open &&
+        items.itemCards.map((item) => {
           return <ItemList item={item} key={item.card.info.name} />;
         })}
     </div>

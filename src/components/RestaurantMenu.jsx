@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useRestaurantMenu } from "../utils/custom-hooks/useRestaurantMenu";
 import { Shimmer } from "../common/shimmer";
@@ -6,6 +6,7 @@ import { SWIGGY_ITEM_CATEGORY } from "../utils/constant";
 import { ItemCategory } from "./ItemCategory";
 
 export default function RestaurantMenu() {
+  const [showIndex, setShowIndex] = useState(0); // Lifting the state Up
   let { resId } = useParams();
   const restaurantMenu = useRestaurantMenu(resId);
 
@@ -26,8 +27,7 @@ export default function RestaurantMenu() {
     restaurantMenu?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards;
 
   restaurantMenuCard = restaurantMenuCard.filter(
-    (res) =>
-      res.card.card["@type"] === SWIGGY_ITEM_CATEGORY
+    (res) => res.card.card["@type"] === SWIGGY_ITEM_CATEGORY
   );
   console.log(restaurantMenuCard);
 
@@ -77,9 +77,14 @@ export default function RestaurantMenu() {
 
           <div className="border-dashed border-2"></div>
 
-          {restaurantMenuCard.map((res) => {
+          {restaurantMenuCard.map((res, index) => {
             return (
-              <ItemCategory key={res.card.card.title} items={res.card.card}/>
+              <ItemCategory
+                key={res.card.card.title}
+                items={res.card.card}
+                open={index === showIndex}
+                setShowIndex={() => setShowIndex(index)}
+              />
             );
           })}
         </div>
