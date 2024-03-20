@@ -1,5 +1,10 @@
 import { Disclosure } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  ShoppingBagIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 
@@ -14,6 +19,8 @@ function classNames(...classes) {
 }
 
 export default Header = () => {
+  const items = useSelector((store) => store.cart.items);
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -79,8 +86,29 @@ export default Header = () => {
                         {item.name}
                       </Link>
                     ))}
+
+                    <Link
+                      to="/cart"
+                      key="cart"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    >
+                      Cart {items.name}
+                    </Link>
                   </div>
                 </div>
+              </div>
+
+              <div className="ml-4 flow-root lg:ml-6">
+                <Link to="/cart" className="group -m-2 flex items-center p-2">
+                  <ShoppingBagIcon
+                    className="h-6 w-6 flex-shrink-0 group-hover:text-white text-gray-300"
+                    aria-hidden="true"
+                  />
+                  <span className="ml-2 text-sm font-medium text-gray-300 group-hover:text-white">
+                    {items.length}
+                  </span>
+                  <span className="sr-only">items in cart, view bag</span>
+                </Link>
               </div>
             </div>
           </div>

@@ -7,13 +7,18 @@ import { Body } from "./components/Body";
 import { About } from "./components/About";
 import { PageNotFound } from "./common/PageNotFound";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { Cart } from "./components/Cart";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 export const App = () => {
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 
@@ -32,8 +37,12 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurant/:resId",
-        element: <RestaurantMenu />
-      }
+        element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
     ],
     errorElement: <PageNotFound />,
   },
