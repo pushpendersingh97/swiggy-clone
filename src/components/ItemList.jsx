@@ -5,11 +5,11 @@ import { addItem } from "../utils/cartSlice";
 
 export const ItemList = (props) => {
   const { name, imageId, description, defaultPrice, price } =
-    props.item.card.info;
+    props.item?.card?.info;
 
   const dispatch = useDispatch();
-  const addToCart = () => {
-    dispatch(addItem(props.item.card.info));
+  const addToCart = (item) => {
+    dispatch(addItem(item));
   };
 
   return (
@@ -20,15 +20,15 @@ export const ItemList = (props) => {
         </p>
         <p className="text-xs">{description}</p>
       </div>
-      <div className="flex relative">
+      <div className="flex relative justify-center">
         <button
-          className="absolute bg-black text-white px-2 py-1 rounded-md -bottom-3 left-3 text-sm"
-          onClick={addToCart}
+          className="absolute bg-black text-white px-2 py-1 rounded-md -bottom-3  text-sm"
+          onClick={() => addToCart(props.item)}
         >
           + Add
         </button>
         <img
-          className="h-20 w-35 flex-none bg-gray-50 rounded-lg"
+          className="h-20 w-36 flex-none bg-gray-50 rounded-lg"
           src={IMG_URL + imageId}
           alt={name}
         />

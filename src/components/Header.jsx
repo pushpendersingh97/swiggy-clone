@@ -20,7 +20,6 @@ function classNames(...classes) {
 
 export default Header = () => {
   const items = useSelector((store) => store.cart.items);
-  console.log(items)
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -87,14 +86,6 @@ export default Header = () => {
                         {item.name}
                       </Link>
                     ))}
-
-                    <Link
-                      to="/cart"
-                      key="cart"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                    >
-                      Cart {items.name}
-                    </Link>
                   </div>
                 </div>
               </div>

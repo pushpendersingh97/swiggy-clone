@@ -12,8 +12,9 @@ const cartSlice = createSlice({
         removeItem(state, action) {
             state.items.find((item) => item.id === action.payload)
         },
-        clearCart() {
-            state.items.length = 0;
+        clearCart(state) {
+            // state.items.length = 0;
+            return { items : [] }
         }
     }
 })

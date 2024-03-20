@@ -29,7 +29,6 @@ export default function RestaurantMenu() {
   restaurantMenuCard = restaurantMenuCard.filter(
     (res) => res.card.card["@type"] === SWIGGY_ITEM_CATEGORY
   );
-  console.log(restaurantMenuCard);
 
   const { name, nearestOutletNudge, cuisines, avgRating } =
     restaurantDetails?.card?.card?.info;
