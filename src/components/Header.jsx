@@ -20,6 +20,7 @@ function classNames(...classes) {
 
 export default Header = () => {
   const items = useSelector((store) => store.cart.items);
+  console.log(items)
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
