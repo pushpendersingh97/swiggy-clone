@@ -12,6 +12,8 @@ const Cart = () => {
     dispatch(clearCart());
   };
 
+  console.log(cartItems);
+
   if (cartItems.length === 0) {
     return <div className="p-4 text-center font-semibold">No record Found</div>;
   }
@@ -25,11 +27,11 @@ const Cart = () => {
         </button>
       </div>
 
-      <p>
+      <div>
         {cartItems.map((cartItem) => {
-          return <ItemList item={cartItem} key={cartItem.card?.info?.name} />;
+          return <ItemList item={cartItem} key={cartItem.card?.info?.name} fromCart={true} />;
         })}
-      </p>
+      </div>
     </div>
   );
 };
