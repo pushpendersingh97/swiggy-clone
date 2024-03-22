@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { IMG_URL } from "../utils/constant";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
+import Button from "../common/Button";
 
 export const ItemList = (props) => {
   const { name, imageId, description, defaultPrice, price } =
@@ -29,12 +30,14 @@ export const ItemList = (props) => {
       </div>
       <div className="flex relative justify-center">
         {!props.fromCart && (
-          <button
-            className="absolute bg-black text-white px-2 py-1 rounded-md -bottom-3  text-sm"
+          <Button
             onClick={() => addToCart(props.item)}
+            className={
+              "absolute bg-black text-white px-2 py-1 rounded-md -bottom-3  text-sm"
+            }
           >
             + Add
-          </button>
+          </Button>
         )}
 
         <img
